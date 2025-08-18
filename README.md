@@ -1,94 +1,119 @@
-# 📘 AI-Cheat — AI-Powered Cheat Sheets in Your Terminal
+# 📘 AI-Cheat – AI Powered Developer Cheat Sheets in Terminal
 
-🚀 **AI-Cheat** is a command-line tool that instantly generates **developer cheat sheets** in your terminal using AI. No need to Google docs or search StackOverflow — just run one command and get what you need!
+A **Command Line Interface (CLI)** tool that generates **concise cheat sheets** (React, Python, JavaScript, etc.) using **Groq LLM API**.
+No more Googling → just run a command and get an instant cheat sheet inside your terminal. 🚀
 
 ---
 
 ## ✨ Features
 
-* ⚡ Instant cheat sheets for any topic (React, Python, Linux, etc.)
-* 🎨 Beautiful output with syntax highlighting (powered by `rich`)
-* 📂 Offline history caching (previous cheat sheets stored locally)
-* 🔄 Works with multiple AI backends (OpenAI, Groq, Ollama, etc.)
-* 🛠️ Simple CLI tool — run anywhere in your terminal
+* 🖥️ Run in terminal with `ai-cheat <topic>` (e.g., `ai-cheat react hooks`)
+* ⚡ Uses **Groq LLM API** for instant AI responses
+* 🎯 Supports **Zero-shot, One-shot, Multi-shot, Dynamic prompting**
+* 🔑 Configurable via `.env` (API key, model, temperature)
+* 📊 Logs **token usage** after each response
+* 🎨 Adjustable **creativity (temperature)** via CLI flag
+* 📚 Built to demonstrate **8 AI Prompting Concepts**
 
 ---
 
-## 🛠️ Tech Stack
+## 📂 Project Structure
 
-* **Language:** Python 3
-* **Libraries:**
-
-  * `argparse` → CLI parsing
-  * `requests` → API calls
-  * `rich` → terminal formatting
-  * `openai` (or Groq) → AI backend
-* **Packaging:** `pip` (install globally for CLI use)
-
----
-
-## 📦 Installation
-
-1. Clone this repo:
-
-   ```bash
-   git clone https://github.com/techabbayi/ai-cheat.git
-   cd ai-cheat
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Add your **API Key** (Groq):
-
-   ```bash
-   export API_KEY="your_api_key_here"
-   ```
-
-4. Install as CLI:
-
-   ```bash
-   pip install .
-   ```
-
-Now you can run `ai-cheat` globally in your terminal 🚀
+```
+|-- .env                 # Store your Groq API key here
+|-- package.json          # Project dependencies & scripts
+|-- package-lock.json
+|-- bin
+|   |-- ai-cheat.js       # CLI entry file (runs the tool)
+|-- src
+|   |-- config.js         # Loads environment variables, API config
+|   |-- generator.js      # Core cheat sheet generator (API call)
+|   |-- prompts.js        # Stores system + example prompts
+|   |-- utils.js          # Helpers (token count, formatting, args)
+```
 
 ---
 
-## 🚀 Usage
+## 🔑 Setup
 
-### Basic command:
+1. **Clone repo**
+
+   ```bash
+   git clone https://github.com/kalviumcommunity/AI-CLI-CheatSheet
+   cd AI-CLI-CheatSheet
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Add `.env` file**
+
+   ```
+   GROQ_API_KEY=your_api_key_here
+   MODEL=llama-3.1-70b-versatile
+   ```
+
+4. **Link CLI globally**
+
+   ```bash
+   npm link
+   ```
+
+5. **Run it**
+
+   ```bash
+   ai-cheat react hooks
+   ```
+
+---
+
+## 🧪 Usage Examples
+
+### 1. Generate React Hooks cheat sheet
 
 ```bash
 ai-cheat react hooks
 ```
 
+### 2. Python list comprehensions
+
+```bash
+ai-cheat python list comprehensions
+```
+
+### 3. With creativity (temperature)
+
+```bash
+ai-cheat javascript promises --temp 0.8
+```
+
+### 4. View tokens used
+
+```bash
+ai-cheat express middleware
+# Output includes "Tokens used: 234"
+```
+
 ---
 
-## 🔄 Workflow
+## 🧠 8 AI Prompting Concepts Covered
 
-1. User runs `ai-cheat <topic> <subtopic>`.
-2. CLI parses input with `argparse`.
-3. Sends prompt → AI backend.
-4. AI generates a **short cheat sheet** (syntax, examples, tips).
-5. Output is formatted beautifully with `rich`.
-6. Saved in local history (`~/.ai-cheat-history.json`) for offline use.
+This project demonstrates **8 important prompting concepts** for GenAI:
 
----
-
-## 🎯 Who Can Use This?
-
-* 👨‍💻 Developers (quick syntax recall)
-* 🎓 Students (learning new languages)
-* ⚡ Hackathon coders (fast lookups without docs)
-* 🖥️ Sysadmins (Linux commands cheat sheets)
+1. **Project README + Explanation** → Documentation & video demo
+2. **System + User Prompt (RTFC)** → Role, Task, Format, Constraints framework
+3. **Zero-Shot Prompting** → No examples, just direct query
+4. **One-Shot Prompting** → With one sample cheat sheet
+5. **Multi-Shot Prompting** → With 2–3 sample cheat sheets
+6. **Dynamic Prompting** → User topic auto-inserted in prompt
+7. **Tokens & Tokenization** → Log tokens used per query
+8. **Temperature** → Control creativity of responses
 
 ---
-
 
 ## 📜 License
 
-MIT License. Free to use, modify, and share.
+MIT License © 2025 
