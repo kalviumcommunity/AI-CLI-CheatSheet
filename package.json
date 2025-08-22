@@ -1,0 +1,13 @@
+{
+  "name": "ai-cheat",
+  "version": "1.0.0",
+  "description": "AI-powered Cheat Sheet CLI Tool using Groq LLM",
+  "main": "bin/ai-cheat.js",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "groq-sdk": "^0.3.0"
+  }
+}
