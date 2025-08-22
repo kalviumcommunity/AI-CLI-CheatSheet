@@ -10,7 +10,17 @@ export async function generateCheatSheet(topic, temperature) {
         temperature: temperature ?? CONFIG.TEMP,
         messages: [
             { role: "system", content: SYSTEM_PROMPT },
-            { role: "user", content: userPrompt(topic) }
+            {
+                role: "user",
+                content: userPrompt(topic) + `
+Important Notes:
+- Read the full context carefully before answering.
+- Always provide markdown-style cheat sheet.
+- Include syntax, tips, and one example.
+- Limit to 8-10 points maximum.
+- Ensure it is beginner-friendly and well structured.
+`
+            }
         ]
     });
 
@@ -18,4 +28,3 @@ export async function generateCheatSheet(topic, temperature) {
     const tokens = completion.usage.total_tokens;
     return { output, tokens };
 }
-
